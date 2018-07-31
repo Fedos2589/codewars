@@ -7,14 +7,14 @@
 // For an input: "is2 Thi1s T4est 3a" the function should return "Thi1s is2 3a T4est"
 
 let order = (words) => {
-	let wordsArr = words.split(' ')
-	let newWordsArr = []
+  let wordsArr = words.split(' ')
+  let newWordsArr = []
 
-	for (let i in wordsArr) {
-		newWordsArr.push(wordsArr.find(item => item.indexOf(parseInt(i) + 1) != -1))
-	}
+  for (let i in wordsArr) {
+    newWordsArr.push(wordsArr.find(item => item.indexOf(parseInt(i) + 1) != -1))
+  }
 
-	return newWordsArr.join(' ')
+  return newWordsArr.join(' ')
 }
 
 order('4of Fo1r pe6ople g3ood th5e the2')
@@ -25,19 +25,19 @@ order('4of Fo1r pe6ople g3ood th5e the2')
 // Zero isn't an odd number and you don't need to move it. If you have an empty array, you need to return it.
 
 let sortArray = (array) => {
-	const isOdd = (number) => number % 2 !== 0
-	const sortOdds = (array) => array.filter(item => isOdd(item)).sort((a, b) => a > b)
+  const isOdd = (number) => number % 2 !== 0
+  const sortOdds = (array) => array.filter(item => isOdd(item)).sort((a, b) => a > b)
 
-	let sortedOdds = sortOdds(array)
-	let counter = 0
+  let sortedOdds = sortOdds(array)
+  let counter = 0
 
   return array.map((item, index) => {
-  	if (isOdd(item)) {
-  		counter++
-  		return sortedOdds[counter - 1]
-  	} else {
-  		return item
-  	}
+    if (isOdd(item)) {
+      counter++
+      return sortedOdds[counter - 1]
+    } else {
+      return item
+    }
   })
 }
 
@@ -50,13 +50,13 @@ sortArray([5, 3, 1, 8, 0])
 // Note: The function accepts an integer and returns an integer
 
 let squareDigits = (num) =>
-	parseInt(
-		num
-			.toString()
-			.split('')
-			.map(item => Math.pow(parseInt(item), 2))
-			.join('')
-	)
+  parseInt(
+    num
+      .toString()
+      .split('')
+      .map(item => Math.pow(parseInt(item), 2))
+      .join('')
+  )
 
 squareDigits(9119)
 
@@ -65,9 +65,9 @@ squareDigits(9119)
 // Don't change the order of the elements that are left.
 
 let removeSmallest = (numbers) =>
-	numbers
-		.slice(0, numbers.indexOf(Math.min.apply(Math, numbers)))
-		.concat(numbers.slice(numbers.indexOf(Math.min.apply(Math, numbers)) + 1, numbers.length))
+  numbers
+    .slice(0, numbers.indexOf(Math.min.apply(Math, numbers)))
+    .concat(numbers.slice(numbers.indexOf(Math.min.apply(Math, numbers)) + 1, numbers.length))
 
 removeSmallest([5,3,2,1,4])
 
