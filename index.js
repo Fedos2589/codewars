@@ -187,4 +187,59 @@ let anagrams = (word, words) =>
 
 anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
 
+// A Narcissistic Number is a number which is the sum of its own digits, each raised to the power of the number of digits.
+
+// For example, take 153 (3 digits):
+
+//     1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+// and 1634 (4 digits):
+
+//     1^4 + 6^4 + 3^4 + 4^4 = 1 + 1296 + 81 + 256 = 1634
+// The Challenge:
+
+// Your code must return true or false depending upon whether the given number is a Narcissistic number.
+
+// Error checking for text strings or other invalid inputs is not required, only valid integers will be passed into the function.
+
+let narcissistic = (value) =>
+  value === value
+            .toString()
+            .split('')
+            .reduce((acc, cur) => {return acc + Math.pow(cur, value.toString().split('').length)}, 0)
+
+narcissistic( 371 )
+
+// A string is considered to be in title case if each word in the string is either
+// (a) capitalised (that is, only the first letter of the word is in upper case) or
+// (b) considered to be an exception and put entirely into lower case unless it is the first word, which is always capitalised.
+
+// Write a function that will convert a string into title case, given an optional list of exceptions (minor words).
+// The list of minor words will be given as a string with each word separated by a space.
+// Your function should ignore the case of the minor words string -- it should behave in the same way even if the case of the minor word string is changed.
+
+// titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
+// titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
+// titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
+
+let titleCase = (target, exceptions) => {
+  let isException = (word) =>
+    exceptions
+      ? exceptions.toLowerCase().split(' ').includes(word.toLowerCase())
+      : false
+
+  return target
+          .toLowerCase()
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.substring(1))
+          .map((word, index) => isException(word) && index > 0 ? word.toLowerCase() : word)     
+}
+
+titleCase('THE WIND IN THE WILLOWS', 'The In')
+
+
+
+
+
+
+
 
