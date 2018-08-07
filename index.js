@@ -295,55 +295,60 @@ let listSquared = (m, n) => {
   return result
 }
 
-// Alright, detective, one of our colleagues successfully observed our target person, Robby the robber.
-// We followed him to a secret warehouse, where we assume to find all the stolen stuff.
-// The door to this warehouse is secured by an electronic combination lock.
-// Unfortunately our spy isn't sure about the PIN he saw, when Robby entered it.
+// Format any integer provided into a string with "," (commas) in the correct places.
 
-// The keypad has the following layout:
+// Example:
 
-// ┌───┬───┬───┐
-// │ 1 │ 2 │ 3 │
-// ├───┼───┼───┤
-// │ 4 │ 5 │ 6 │
-// ├───┼───┼───┤
-// │ 7 │ 8 │ 9 │
-// └───┼───┼───┘
-//     │ 0 │
-//     └───┘
-// He noted the PIN 1357, but he also said, it is possible that each of the digits he saw could actually be another adjacent digit (horizontally or vertically, but not diagonally). 
-// E.g. instead of the 1 it could also be the 2 or 4.
-// And instead of the 5 it could also be the 2, 4, 6 or 8.
+// numberFormat(100000); // return '100,000'
+// numberFormat(5678545); // return '5,678,545'
+// numberFormat(-420902); // return '-420,902'
 
-// He also mentioned, he knows this kind of locks.
-// You can enter an unlimited amount of wrong PINs, they never finally lock the system or sound the alarm.
-// That's why we can try out all possible (*) variations.
+let numberFormat = (number) => {
+  let lastIndex = number.toString().charAt(0) === '-' ? number.toString().length - 2 : number.toString().length - 1
 
-// * possible in sense of: the observed PIN itself and all variations considering the adjacent digits
-
-// Can you help us to find all those variations?
-// It would be nice to have a function, that returns an array (or a list in Java and C#) of all variations for an observed PIN with a length of 1 to 8 digits.
-// We could name the function getPINs (get_pins in python, GetPINs in C#).
-// But please note that all PINs, the observed one and also the results, must be strings, because of potentially leading '0's.
-// We already prepared some test cases for you.
-
-// Detective, we count on you!
-
-let getPINs = (observed) => {
-  const adjacents = {
-    1: ['1', '2', '4'],
-    2: ['1', '2', '3', '5'],
-    3: ['2', '3', '6'],
-    4: ['1', '4', '5'],
-    5: ['2', '4', '5', '6', '8'],
-    6: ['3', '5'. '6', '9'],
-    7: ['4', '7', '8'],
-    8: ['5', '7', '8', '9', '0'],
-    9: ['6', '8', '9'],
-    0: ['8', '0']
-  }
-  
+  return number
+    .toString()
+    .split('')
+    .reverse()
+    .map((digit, index) => ((index + 1) % 3 === 0 && index < lastIndex) ? ',' + digit : digit)
+    .reverse()
+    .join('')
 }
+
+// A perfect power is a classification of positive integers:
+
+// In mathematics, a perfect power is a positive integer that can be expressed as an integer power of another positive integer.
+// More formally, n is a perfect power if there exist natural numbers m > 1, and k > 1 such that mk = n.
+
+// Your task is to check wheter a given integer is a perfect power.
+// If it is a perfect power, return a pair m and k with mk = n as a proof.
+// Otherwise return Nothing, Nil, null, NULL, None or your language's equivalent.
+
+// Note: For a perfect power, there might be several pairs.
+// For example 81 = 3^4 = 9^2, so (3,4) and (9,2) are valid solutions.
+// However, the tests take care of this, so if a number is a perfect power, return any pair that proves it.
+
+// Examples
+// Test.describe("perfect powers", function(){
+//   Test.it("should work for some examples",function(){
+//     Test.assertSimilar(isPP(4), [2,2], "4 = 2^2");
+//     Test.assertSimilar(isPP(9), [3,2], "9 = 3^2");
+//     Test.assertEquals( isPP(5), null, "5 isn't a perfect number");
+//   });
+// });
+
+let isPP = (n) => {
+  for (let i = 2; i < n; i++) {
+    for (let k = 2; Math.pow(i, k) <= n; k++) {
+      if (Math.pow(i, k) === n) return [i, k]
+    }
+  }
+
+  return null
+}
+
+
+
 
 
 
