@@ -369,5 +369,49 @@ let generateHashtag = (str) =>
     .map(word => word.charAt(0).toUpperCase() + word.substr(1))
     .join('')
 
+// Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+// Example:
+
+// Given nums = [2, 7, 11, 15], target = 9,
+
+// Because nums[0] + nums[1] = 2 + 7 = 9,
+// return [0, 1].
+
+let twoSum = (nums, target) => {
+  let result = []
+
+  nums.forEach((item1, index1) =>
+    nums
+      .slice(index1 + 1)
+      .forEach((item2, index2) =>
+        item1 + item2 === target ? result = [index1, index1 + 1 + index2] : ''))
+
+  return result
+}
+
+// You are given two non-empty linked lists representing two non-negative integers.
+// The digits are stored in reverse order and each of their nodes contain a single digit.
+// Add the two numbers and return it as a linked list.
+
+// You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+
+
+let addTwoNumbers = (l1, l2) => {
+  let arrayToNumber = (arr) => parseInt(arr.reverse().join(''))
+  
+  return (arrayToNumber(l1) + arrayToNumber(l2))
+    .toString()
+    .split('')
+    .reverse()
+    .map(item => parseInt(item))
+}
+
+
+
+
 
 
