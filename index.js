@@ -172,7 +172,8 @@ let inArray = (arr1, arr2) =>
 
 inArray(["xyz", "live", "strong"], ["lively", "alive", "harp", "sharp", "armstrong"])
 
-// Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none. For example:
+// Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words.
+// You should return an array of all the anagrams or an empty array if there are none. For example:
 
 // anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
 
@@ -259,11 +260,13 @@ let findOdd = (arr) => {
   return counter % 2 !== 0 ? arr[0] : findOdd(arr.filter(item => item !== arr[0]))
 }
  
-// Divisors of 42 are : 1, 2, 3, 6, 7, 14, 21, 42. These divisors squared are: 1, 4, 9, 36, 49, 196, 441, 1764. The sum of the squared divisors is 2500 which is 50 * 50, a square!
+// Divisors of 42 are : 1, 2, 3, 6, 7, 14, 21, 42. These divisors squared are: 1, 4, 9, 36, 49, 196, 441, 1764.
+// The sum of the squared divisors is 2500 which is 50 * 50, a square!
 
 // Given two integers m, n (1 <= m <= n) we want to find all integers between m and n whose sum of squared divisors is itself a square. 42 is such a number.
 
-// The result will be an array of arrays or of tuples (in C an array of Pair) or a string, each subarray having two elements, first the number whose squared divisors is a square and then the sum of the squared divisors.
+// The result will be an array of arrays or of tuples (in C an array of Pair) or a string, each subarray having two elements,
+// first the number whose squared divisors is a square and then the sum of the squared divisors.
 
 // #Examples:
 
@@ -438,7 +441,9 @@ let accum = (s) =>
 // Kata.getMiddle("A") should return "A"
 // #Input
 
-// A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+// A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases).
+// You do not need to test for this.
+// This is only here to tell you that you do not need to worry about your solution timing out.
 
 // #Output
 
@@ -468,8 +473,59 @@ let getCount = (str) => {
   return str.split('').filter(letter => vowels.find(vowel => vowel === letter)).length
 } 
 
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
 
+// Example:
 
+// highAndLow("1 2 3 4 5"); // return "5 1"
+// highAndLow("1 2 -3 4 5"); // return "5 -3"
+// highAndLow("1 9 3 4 -5"); // return "9 -5"
+// Notes:
 
+// All numbers are valid Int32, no need to validate them.
+// There will always be at least one number in the input string.
+// Output string must be two numbers separated by a single space, and highest number is first.
 
+let highAndLow = (numbers) => {
+  let numArr = numbers.split(' ')
 
+  let maxArr = Math.max.apply(Math, numArr)
+  let minArr = Math.min.apply(Math, numArr)
+
+  return `${maxArr} ${minArr}`
+}
+
+// Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive.
+// The string can contain any char.
+
+// Examples input/output:
+
+// XO("ooxx") => true
+// XO("xooxx") => false
+// XO("ooxXm") => true
+// XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+// XO("zzoo") => false
+
+let XO = (str) => {
+  let countX = str.split('').filter(letter => letter.toLowerCase() === 'x').length
+  let countO = str.split('').filter(letter => letter.toLowerCase() === 'o').length
+
+  return countO === countX
+}
+
+// Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013).
+// Jaden is also known for some of his philosophy that he delivers via Twitter.
+// When writing on Twitter, he is known for almost always capitalizing every word.
+
+// Your task is to convert strings to how they would be written by Jaden Smith.
+// The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+// Example:
+
+// Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+// Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+// Note that the Java version expects a return value of null for an empty string or null.
+
+String.prototype.toJadenCase = function () {
+  return this.split(' ').map(word => word.charAt(0).toUpperCase() + word.substr(1)).join(' ')
+}
