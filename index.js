@@ -529,3 +529,109 @@ let XO = (str) => {
 String.prototype.toJadenCase = function () {
   return this.split(' ').map(word => word.charAt(0).toUpperCase() + word.substr(1)).join(' ')
 }
+
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+let disemvowel = (str) => str.replace(/[aeiuo]/gi, '')
+
+// A square of squares
+// You like building blocks.
+// You especially like building blocks that are squares.
+// And what you even like more, is to arrange them into a square of square building blocks!
+
+// However, sometimes, you can't arrange them into a square.
+// Instead, you end up with an ordinary rectangle!
+// Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait!
+// That's it! You just have to check if your number of building blocks is a perfect square.
+
+// Task
+// Given an integral number, determine if it's a square number:
+
+// In mathematics, a square number or perfect square is an integer that is the square of an integer;
+// in other words, it is the product of some integer with itself.
+
+// The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+
+// Examples
+// is_square (-1) # => false
+// is_square   0 # => true
+// is_square   3 # => false
+// is_square   4 # => true
+// is_square  25 # => true
+// is_square  26 # => false
+
+let isSquare = (n) => Number.isInteger(Math.sqrt(n))
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
+// The sum of these multiples is 23.
+
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+// Note: If the number is a multiple of both 3 and 5, only count it once.
+
+let solution = (number) => {
+  let allNumbers = []
+
+  for (let i = 1; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) allNumbers.push(i) 
+  }
+
+  return allNumbers.reduce((acc, cur) => acc + cur) 
+}
+
+// Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+
+// For example:
+
+//  persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
+//                        // and 4 has only one digit
+
+//  persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
+//                         // 1*2*6 = 12, and finally 1*2 = 2
+
+//  persistence(4) === 0 // because 4 is already a one-digit number
+
+let persistence = (num) => {
+  let counter = 0
+  let numToArr = (num) => num.toString().split('')
+
+  let digitsMultyplier = (num) => {
+    if (numToArr(num).length > 1) {
+      counter++
+      digitsMultyplier(numToArr(num).reduce((acc, cur) => acc * cur, 1))
+    } else {
+      return
+    }
+  }
+
+  digitsMultyplier(num)
+
+  return counter
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
