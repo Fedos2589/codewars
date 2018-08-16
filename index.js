@@ -398,17 +398,75 @@ let twoSum = (nums, target) => {
 
 // You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
-
-
 let addTwoNumbers = (l1, l2) => {
   let arrayToNumber = (arr) => parseInt(arr.reverse().join(''))
-  
+
   return (arrayToNumber(l1) + arrayToNumber(l2))
     .toString()
     .split('')
     .reverse()
     .map(item => parseInt(item))
 }
+
+// This time no story, no theory. The examples below show you how to write function accum:
+
+// Examples:
+
+// accum("abcd");    // "A-Bb-Ccc-Dddd"
+// accum("RqaEzty"); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt");    // "C-Ww-Aaa-Tttt"
+
+let accum = (s) =>
+  s
+    .split('')
+    .map((letter, index) => letter.toUpperCase() + letter.toLowerCase().repeat(index))
+    .join('-')
+
+// You are going to be given a word.
+// Your job is to return the middle character of the word.
+// If the word's length is odd, return the middle character.
+// If the word's length is even, return the middle 2 characters.
+
+// #Examples:
+
+// Kata.getMiddle("test") should return "es"
+
+// Kata.getMiddle("testing") should return "t"
+
+// Kata.getMiddle("middle") should return "dd"
+
+// Kata.getMiddle("A") should return "A"
+// #Input
+
+// A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+
+// #Output
+
+// The middle character(s) of the word represented as a string.
+
+let getMiddle = (s) => {
+  let lengthIsOdd = (str) => (str.length / 2) % 2 > 0
+
+  if (s.length < 3) {
+    return s
+  }
+
+  return lengthIsOdd(s)
+    ? s.substr(parseInt(s.length / 2), 1)
+    : s.substr(parseInt(s.length / 2) - 1, 2)
+}
+
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, and u as vowels for this Kata.
+
+// The input string will only consist of lower case letters and/or spaces.
+
+let getCount = (str) => {
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+
+  return str.split('').filter(letter => vowels.find(vowel => vowel === letter)).length
+} 
 
 
 
