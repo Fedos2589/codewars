@@ -631,7 +631,6 @@ let persistence = (num) => {
 let findOutlier = (integers) => {
   let oddArray = (arr) => arr.filter(item => item % 2 !== 0).length > 1
 
-
   return oddArray(integers)
     ? integers.find(item => item % 2 === 0)
     : integers.find(item => item % 2 !== 0)
@@ -681,12 +680,40 @@ let spinWords = (str) =>
 
 let songDecoder = (song) => song.replace(/(WUB){1,}/g, ' ').trim()
 
+// Bob is preparing to pass IQ test.
+// The most frequent task in this test is to find out which one of the given numbers differs from the others.
+// Bob observed that one number usually differs from the others in evenness.
+// Help Bob — to check his answers, he needs a program that among the given numbers finds one that is different in evenness, and return a position of this number.
 
+// ! Keep in mind that your task is to help Bob solve a real IQ test, which means indexes of the elements start from 1 (not 0)
 
+// ##Examples :
 
+// iqTest("2 4 7 8 10") => 3 // Third number is odd, while the rest of the numbers are even
 
+// iqTest("1 2 1 1") => 2 // Second number is even, while the rest of the numbers are odd
 
+let iqTest = (numbers) => numbers.split(' ').indexOf(findOutlier(numbers.split(' '))) + 1
 
+// You are given an array strarr of strings and an integer k. 
+// Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+
+// #Example: longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"
+
+// n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
+
+let longestConsec = (strarr, k) => {
+  if (strarr.length < 1 || k < 1 || k > strarr.length) {
+    return ''
+  }
+
+  return strarr
+          .sort()
+          .filter((item, index) => item === strarr.sort()[index + 1])
+          .sort((prev, next) => prev.length < next.length)
+          .slice(0, k)
+          .join('')
+}
 
 
 
