@@ -97,9 +97,11 @@ let alphabetPosition = (text) =>
 // Vasya is currently working as a clerk.
 // He wants to sell a ticket to every single person in this line.
 
-// Can Vasya sell a ticket to each person and give the change if he initially has no money and sells the tickets strictly in the order people follow in the line?
+// Can Vasya sell a ticket to each person and give the change if he initially has no money and sells
+//the tickets strictly in the order people follow in the line?
 
-// Return YES, if Vasya can sell a ticket to each person and give the change with the bills he has at hand at that moment. Otherwise return NO.
+// Return YES, if Vasya can sell a ticket to each person and give the change with the bills he has at hand at that moment.
+//Otherwise return NO.
 
 let tickets = (peopleInLine) => {
   const answers = {
@@ -172,7 +174,8 @@ let inArray = (arr1, arr2) =>
 
 inArray(["xyz", "live", "strong"], ["lively", "alive", "harp", "sharp", "armstrong"])
 
-// Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words.
+// Write a function that will find all the anagrams of a word from a list.
+//You will be given two inputs a word and an array with words.
 // You should return an array of all the anagrams or an empty array if there are none. For example:
 
 // anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
@@ -188,7 +191,8 @@ let anagrams = (word, words) =>
 
 anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
 
-// A Narcissistic Number is a number which is the sum of its own digits, each raised to the power of the number of digits.
+// A Narcissistic Number is a number which is the sum of its own digits,
+//each raised to the power of the number of digits.
 
 // For example, take 153 (3 digits):
 
@@ -200,7 +204,8 @@ anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
 
 // Your code must return true or false depending upon whether the given number is a Narcissistic number.
 
-// Error checking for text strings or other invalid inputs is not required, only valid integers will be passed into the function.
+// Error checking for text strings or other invalid inputs is not required,
+//only valid integers will be passed into the function.
 
 let narcissistic = (value) =>
   value === value
@@ -212,11 +217,13 @@ narcissistic( 371 )
 
 // A string is considered to be in title case if each word in the string is either
 // (a) capitalised (that is, only the first letter of the word is in upper case) or
-// (b) considered to be an exception and put entirely into lower case unless it is the first word, which is always capitalised.
+// (b) considered to be an exception and put entirely into lower case unless it is the first word,
+//which is always capitalised.
 
 // Write a function that will convert a string into title case, given an optional list of exceptions (minor words).
 // The list of minor words will be given as a string with each word separated by a space.
-// Your function should ignore the case of the minor words string -- it should behave in the same way even if the case of the minor word string is changed.
+// Your function should ignore the case of the minor words string --
+//it should behave in the same way even if the case of the minor word string is changed.
 
 // titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
 // titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
@@ -263,9 +270,11 @@ let findOdd = (arr) => {
 // Divisors of 42 are : 1, 2, 3, 6, 7, 14, 21, 42. These divisors squared are: 1, 4, 9, 36, 49, 196, 441, 1764.
 // The sum of the squared divisors is 2500 which is 50 * 50, a square!
 
-// Given two integers m, n (1 <= m <= n) we want to find all integers between m and n whose sum of squared divisors is itself a square. 42 is such a number.
+// Given two integers m, n (1 <= m <= n) we want to find all integers between m and n whose sum of squared divisors
+//is itself a square. 42 is such a number.
 
-// The result will be an array of arrays or of tuples (in C an array of Pair) or a string, each subarray having two elements,
+// The result will be an array of arrays or of tuples (in C an array of Pair) or a string,
+//each subarray having two elements,
 // first the number whose squared divisors is a square and then the sum of the squared divisors.
 
 // #Examples:
@@ -320,7 +329,8 @@ let numberFormat = (number) => {
 
 // A perfect power is a classification of positive integers:
 
-// In mathematics, a perfect power is a positive integer that can be expressed as an integer power of another positive integer.
+// In mathematics, a perfect power is a positive integer that can be expressed as
+//an integer power of another positive integer.
 // More formally, n is a perfect power if there exist natural numbers m > 1, and k > 1 such that mk = n.
 
 // Your task is to check wheter a given integer is a perfect power.
@@ -441,7 +451,8 @@ let accum = (s) =>
 // Kata.getMiddle("A") should return "A"
 // #Input
 
-// A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases).
+// A word (string) of length 0 < str < 1000
+//(In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases).
 // You do not need to test for this.
 // This is only here to tell you that you do not need to worry about your solution timing out.
 
@@ -473,7 +484,8 @@ let getCount = (str) => {
   return str.split('').filter(letter => vowels.find(vowel => vowel === letter)).length
 } 
 
-// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+// In this little assignment you are given a string of space separated numbers,
+//and have to return the highest and lowest number.
 
 // Example:
 
@@ -495,7 +507,8 @@ let highAndLow = (numbers) => {
   return `${maxArr} ${minArr}`
 }
 
-// Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive.
+// Check to see if a string has the same amount of 'x's and 'o's.
+//The method must return a boolean and be case insensitive.
 // The string can contain any char.
 
 // Examples input/output:
@@ -532,7 +545,8 @@ String.prototype.toJadenCase = function () {
 
 // Trolls are attacking your comment section!
 
-// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments,
+//neutralizing the threat.
 
 // Your task is to write a function that takes a string and return a new string with all vowels removed.
 
@@ -663,13 +677,16 @@ let spinWords = (str) =>
 // and between words (at least one between any pair of neighbouring words),
 // and then the boy glues together all the words, including "WUB", in one string and plays the song at the club.
 
-// For example, a song with words "I AM X" can transform into a dubstep remix as "WUBWUBIWUBAMWUBWUBX" and cannot transform into "WUBWUBIAMWUBX".
+// For example, a song with words "I AM X" can transform into a dubstep remix as "WUBWUBIWUBAMWUBWUBX"
+//and cannot transform into "WUBWUBIAMWUBX".
 
-// Recently, Jonny has heard Polycarpus's new dubstep track, but since he isn't into modern music, he decided to find out what was the initial song that Polycarpus remixed.
+// Recently, Jonny has heard Polycarpus's new dubstep track, but since he isn't into modern music,
+//he decided to find out what was the initial song that Polycarpus remixed.
 // Help Jonny restore the original song.
 
 // Input
-// The input consists of a single non-empty string, consisting only of uppercase English letters, the string's length doesn't exceed 200 characters
+// The input consists of a single non-empty string, consisting only of uppercase English letters,
+//the string's length doesn't exceed 200 characters
 
 // Output
 // Return the words of the initial song that Polycarpus used to make a dubsteb remix.
@@ -684,9 +701,11 @@ let songDecoder = (song) => song.replace(/(WUB){1,}/g, ' ').trim()
 // Bob is preparing to pass IQ test.
 // The most frequent task in this test is to find out which one of the given numbers differs from the others.
 // Bob observed that one number usually differs from the others in evenness.
-// Help Bob — to check his answers, he needs a program that among the given numbers finds one that is different in evenness, and return a position of this number.
+// Help Bob — to check his answers, he needs a program that among the given numbers finds one
+//that is different in evenness, and return a position of this number.
 
-// ! Keep in mind that your task is to help Bob solve a real IQ test, which means indexes of the elements start from 1 (not 0)
+// ! Keep in mind that your task is to help Bob solve a real IQ test,
+//which means indexes of the elements start from 1 (not 0)
 
 // ##Examples :
 
@@ -699,7 +718,8 @@ let iqTest = (numbers) => numbers.split(' ').indexOf(findOutlier(numbers.split('
 // You are given an array strarr of strings and an integer k. 
 // Your task is to return the first longest string consisting of k consecutive strings taken in the array.
 
-// #Example: longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"
+// #Example: longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) -->
+//"abigailtheta"
 
 // n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
 
@@ -777,7 +797,8 @@ let add = (num) => {
 
 // maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
 // // should be 6: [4, -1, 2, 1]
-// Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array. If the list is made up of only negative numbers, return 0 instead.
+// Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array.
+//If the list is made up of only negative numbers, return 0 instead.
 
 // Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
 
@@ -800,6 +821,41 @@ let maxSequence = (arr) => {
 
   return maxSum
 }
+
+// Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+// moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
+
+let moveZeros = (arr) =>
+  arr
+    .filter(x => x !== 0)
+    .concat(arr.filter(x => x === 0))
+
+// Write a program that will calculate the number of trailing zeros in a factorial of a given number.
+
+// N! = 1 * 2 * 3 * ... * N
+
+// Be careful 1000! has 2568 digits...
+
+// For more info, see: http://mathworld.wolfram.com/Factorial.html
+
+// Examples
+// zeros(6) = 1
+// # 6! = 1 * 2 * 3 * 4 * 5 * 6 = 720 --> 1 trailing zero
+
+// zeros(12) = 2
+// # 12! = 479001600 --> 2 trailing zeros
+
+let zeros = (n) => {
+  let ZNum = 0
+
+  for (let i = 1; Math.pow(5, i) <= n; i++) {
+    ZNum += Math.floor(n / Math.pow(5, i))
+  }
+
+  return ZNum
+}
+
 
 
 
