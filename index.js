@@ -955,6 +955,52 @@ let recoverSecret = (triplets) => {
   return ''
 }
 
+// Write a function called that takes a string of parentheses, and determines if the order of the parentheses is valid.
+//The function should return true if the string is valid, and false if it's invalid.
+
+// Examples
+// "()"              =>  true
+// ")(()))"          =>  false
+// "("               =>  false
+// "(())((()())())"  =>  true
+// Constraints
+// 0 <= input.length <= 100
+
+let validParentheses = (parens) => {
+  let parensArr = parens.split('')
+  for (let i = 0; i < parensArr.length; i) {
+    if (parensArr[i] === '(' && parensArr[i + 1] === ')') {
+      parensArr.splice(i, 2)
+      i--
+    } else {
+      i++
+    }
+  }
+
+  return parensArr.length < 1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
