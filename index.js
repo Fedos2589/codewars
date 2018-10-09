@@ -980,13 +980,52 @@ let validParentheses = (parens) => {
   return parensArr.length < 1
 }
 
+// At a job interview, you are challenged to write an algorithm to check if a given string, s,
+//can be formed from two other strings, part1 and part2.
 
+// The restriction is that the characters in part1 and part2 are in the same order as in s.
 
+// The interviewer gives you the following example and tells you to figure out the rest from the given test cases.
 
+// For example:
 
+// 'codewars' is a merge from 'cdw' and 'oears':
 
+//     s:  c o d e w a r s   = codewars
+// part1:  c   d   w         = cdw
+// part2:    o   e   a r s   = oears
 
+let isMerge = (s, part1, part2) => {
+  let p1Arr = part1.split('')
+  let p2Arr = part2.split('')
 
+  let merge = (arr1, arr2) => arr1.map((item, index) => item + arr2[index]).concat(arr2.slice(arr1.length))
+
+  return p1Arr.length < p2Arr.length
+    ? merge(p1Arr, p2Arr).join('')
+    : merge(p2Arr, p1Arr).join('')
+}
+
+// The rgb() method is incomplete.
+//Complete the method so that passing in RGB decimal values will result in a hexadecimal representation being returned.
+//The valid decimal values for RGB are 0 - 255.
+//Any (r,g,b) argument values that fall out of that range should be rounded to the closest valid value.
+
+// The following are examples of expected output values:
+
+// rgb(255, 255, 255) // returns FFFFFF
+// rgb(255, 255, 300) // returns FFFFFF
+// rgb(0,0,0) // returns 000000
+// rgb(148, 0, 211) // returns 9400D3
+
+let rgb = (r, g, b) => {
+  let toHex = (c) => {
+    let hex = c.toString(16)
+    return hex.length === 1 ? "0" + hex : hex
+  }
+
+  return (toHex(r) + toHex(g) + toHex(b)).toUpperCase()
+}
 
 
 
