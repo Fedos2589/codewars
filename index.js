@@ -1027,8 +1027,37 @@ let rgb = (r, g, b) => {
   return (toHex(r) + toHex(g) + toHex(b)).toUpperCase()
 }
 
+// The goal of this exercise is to convert a string to a new string where each character in the new string
+//is '(' if that character appears only once in the original string,
+//or ')' if that character appears more than once in the original string.
+//Ignore capitalization when determining if a character is a duplicate.
 
+// Examples:
 
+// "din" => "((("
+
+// "recede" => "()()()"
+
+// "Success" => ")())())"
+
+// "(( @" => "))(("
+
+let duplicateEncode = (str) => {
+  let strArr = [...str]
+
+  let testCharForDouble = (char) => {
+    let reg = new RegExp(`[${char}]`, 'gi')
+    return str.match(reg)
+  }
+
+  return strArr
+    .map(char =>
+      testCharForDouble(char).length > 1
+        ? ')'
+        : '('
+      )
+    .join('')
+}
 
 
 
