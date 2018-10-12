@@ -1101,9 +1101,51 @@ let likes = (names) => {
   }
 }
 
+// Given: an array containing hashes of names
 
+// Return: a string formatted as a list of names separated by commas except for the last two names,
+//which should be separated by an ampersand.
 
+// Example:
 
+// list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ])
+// // returns 'Bart, Lisa & Maggie'
+
+// list([ {name: 'Bart'}, {name: 'Lisa'} ])
+// // returns 'Bart & Lisa'
+
+// list([ {name: 'Bart'} ])
+// // returns 'Bart'
+
+// list([])
+// // returns ''
+// Note: all the hashes are pre-validated and will only contain A-Z, a-z, '-' and '.'.
+
+let list = (names) => {
+  let namesExact = names.map(item => item.name)
+
+  switch (namesExact.length) {
+    case 0:
+      return ''
+    case 1:
+      return namesExact[0]
+    case 2:
+      return `${namesExact[0]} & ${namesExact[1]}`
+    default:
+      return namesExact
+        .map((item, index) => {
+          switch (index) {
+            case namesExact.length - 1:
+              return `& ${item}`
+            case namesExact.length - 2:
+              return `${item} `
+            default:
+              return `${item}, `
+          }
+        })
+        .join('')
+  }
+}
 
 
 
